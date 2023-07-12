@@ -6,7 +6,7 @@
 /*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 11:56:36 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/12 16:34:12 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:02:48 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,11 @@ void				draw_windows(t_struct *cub);
 void				player_rays(t_struct *cub);
 void				move_player(t_struct *cub);
 void				fill_player(t_struct *cub, int center_y, int center_x);
-void				store_pixels(int32_t ***color, mlx_texture_t *texture);
+void	store_pixels(t_texture *texture);
 void				setup(t_struct *cub, char *PATH);
 void					initializewindow(t_struct *cub, char *PATH);
 void				init_position(t_struct *cub);
 int					key_press(mlx_key_data_t keydata, void *param);
-// float				distancePoints(float x, float y);
 float				distancePoints(float x1, float y1, float x2, float y2);
 float				normalizeAngle(float angle);
 void				castRay(t_struct *cub, float rayAngle, int stripId);

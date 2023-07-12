@@ -6,7 +6,7 @@
 /*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 14:14:00 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/12 17:50:04 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:02:28 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,10 @@ void	texturee(t_struct *cub)
 		exit(1);
 	}
 	texter_check(cub);
-	store_pixels(&cub->the_north.color_buffer, cub->the_north.wall);
-	store_pixels(&cub->the_south.color_buffer, cub->the_south.wall);
-	store_pixels(&cub->the_west.color_buffer, cub->the_west.wall);
-	store_pixels(&cub->the_east.color_buffer, cub->the_east.wall);
-	store_pixels(&cub->dor.color_buffer, cub->dor.wall);
+	store_pixels(&cub->the_north);
+	store_pixels(&cub->the_south);
+	store_pixels(&cub->the_west);
+	store_pixels(&cub->the_east);
+	store_pixels(&cub->dor);
 
 }

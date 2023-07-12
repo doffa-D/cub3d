@@ -6,7 +6,7 @@
 /*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:08:56 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/12 16:29:16 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:04:05 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(cub.mlx, render, &cub);
 	mlx_loop(cub.mlx);
 	free_all(&cub);
-	// system("leaks cub3d > file.txt && grep ROOT LEAK:");
+	system("leaks cub3d > file.txt && grep ROOT LEAK:");
 	return (0);
 }

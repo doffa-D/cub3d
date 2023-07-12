@@ -6,7 +6,7 @@
 /*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 11:56:36 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/12 16:36:08 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:02:58 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void				draw_line(t_struct *cub, int x0, int y0, int x1, int y1,
 void				vertical_horizontal(t_struct *cub);
 void				draw_wall(t_struct *cub, int x, int y, int color);
 void				move_player(t_struct *cub);
-void				store_pixels(int32_t ***color, mlx_texture_t *texture);
+void	store_pixels(t_texture *texture);
 void				setup(t_struct *cub, char *PATH);
 void				initializewindow(t_struct *cub, char *PATH);
 void				init_position(t_struct *cub);
