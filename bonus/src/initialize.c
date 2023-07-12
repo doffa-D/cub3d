@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 11:36:00 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/10 13:12:17 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:28:03 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	directions(t_struct *cub)
 	int	x;
 	int	y;
 
-	x = (int)floor(cub->player->x / (TILE_SIZE * MINI_MAP));
-	y = (int)floor(cub->player->y / (TILE_SIZE * MINI_MAP));
+	x = (int)floor(cub->player.x / (TILE_SIZE * MINI_MAP));
+	y = (int)floor(cub->player.y / (TILE_SIZE * MINI_MAP));
 	if (cub->map[y][x] == 'N')
-		cub->player->rotationAngle = (3 * M_PI / 2) + 0.1;
+		cub->player.rotationAngle = (3 * M_PI / 2) + 0.1;
 	if (cub->map[y][x] == 'S')
-		cub->player->rotationAngle = (M_PI / 2) + 0.1;
+		cub->player.rotationAngle = (M_PI / 2) + 0.1;
 	if (cub->map[y][x] == 'E')
-		cub->player->rotationAngle = +0.1;
+		cub->player.rotationAngle = +0.1;
 	if (cub->map[y][x] == 'W')
-		cub->player->rotationAngle = M_PI + +0.1;
+		cub->player.rotationAngle = M_PI + +0.1;
 }
 
 void	setup(t_struct *cub, char *path)
@@ -92,13 +92,13 @@ void	init_position(t_struct *cub)
 			if (cub->map[y][x] == 'S' || cub->map[y][x] == 'N'
 				|| cub->map[y][x] == 'E' || cub->map[y][x] == 'W')
 			{
-				cub->player->x = ((x * TILE_SIZE) + TILE_SIZE / 2) * MINI_MAP;
-				cub->player->y = ((y * TILE_SIZE) + TILE_SIZE / 2) * MINI_MAP;
+				cub->player.x = ((x * TILE_SIZE) + TILE_SIZE / 2) * MINI_MAP;
+				cub->player.y = ((y * TILE_SIZE) + TILE_SIZE / 2) * MINI_MAP;
 				break ;
 			}
 			x++;
 		}
-		if (cub->player->x || cub->player->y)
+		if (cub->player.x || cub->player.y)
 			break ;
 		y++;
 	}

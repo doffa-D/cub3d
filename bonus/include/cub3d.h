@@ -6,7 +6,7 @@
 /*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 11:56:36 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/11 18:46:58 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:34:12 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,13 @@ typedef struct s_struct
 	int				Mouse_mode;
 	mlx_t			*mlx;
 	mlx_image_t		*image;
-	t_player		*player;
+	t_player		player;
 	t_rays			rays[NUM_RAYS];
-	t_texture		*the_north;
-	t_texture		*the_south;
-	t_texture		*the_west;
-	t_texture		*the_east;
-	t_texture		*dor;
+	t_texture		the_north;
+	t_texture		the_south;
+	t_texture		the_west;
+	t_texture		the_east;
+	t_texture		dor;
 	int				WINDOW_WIDTH;
 	int				WINDOW_HEIGHT;
 	int				HIDE_MAP;
@@ -103,7 +103,8 @@ void				setup(t_struct *cub, char *PATH);
 void					initializewindow(t_struct *cub, char *PATH);
 void				init_position(t_struct *cub);
 int					key_press(mlx_key_data_t keydata, void *param);
-float				distancePoints(float x, float y);
+// float				distancePoints(float x, float y);
+float				distancePoints(float x1, float y1, float x2, float y2);
 float				normalizeAngle(float angle);
 void				castRay(t_struct *cub, float rayAngle, int stripId);
 void				castAllRays(t_struct *cub);

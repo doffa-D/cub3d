@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parccen_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 15:50:00 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/06/21 10:45:09 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:28:03 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,8 +187,8 @@ void    parccen_map(t_struct *cub,char *map_path)
         {
             if(ft_strchr("NWESP", cub->map[i][j]))
             {
-                // cub->player->x = ((j * TILE_SIZE) + TILE_SIZE / 2) * MINI_MAP;
-                // cub->player->y = ((i * TILE_SIZE) + TILE_SIZE / 2) * MINI_MAP;
+                // cub->player.x = ((j * TILE_SIZE) + TILE_SIZE / 2) * MINI_MAP;
+                // cub->player.y = ((i * TILE_SIZE) + TILE_SIZE / 2) * MINI_MAP;
                 if(cub->map[i][j + 1] == ' ' || cub->map[i][j + 1] == '\n' || cub->map[i][j + 1] == '\0')
                 {
                     printf("%s\n", cub->map[i]);

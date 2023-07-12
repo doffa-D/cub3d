@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 11:41:57 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/10 13:24:26 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:28:03 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ void	draw_windows(t_struct *cub)
 		while (cub->map[y][x])
 		{
 			if (cub->close_dor % 2 == 0 && cub->map[y][x] == 'D'
-				&& cub->map[(int)floor(cub->player->y / (TILE_SIZE
-						* MINI_MAP))][(int)floor(cub->player->x / (TILE_SIZE
+				&& cub->map[(int)floor(cub->player.y / (TILE_SIZE
+						* MINI_MAP))][(int)floor(cub->player.x / (TILE_SIZE
 						* MINI_MAP))] != 'D')
 				draw_wall(cub, x, y, 0x800080FF);
 			if (cub->map[y][x] == '1')

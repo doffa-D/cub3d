@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:08:56 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/11 16:09:09 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:55:39 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ void	check_door(t_struct *cub)
 int	main(int argc, char **argv)
 {
 	t_struct	cub;
-	t_player	player;
 
 	arg_check(argc, argv);
-	cub.player = &player;
 	initializewindow(&cub, argv[1]);
 	texturee(&cub);
 	check_door(&cub);
@@ -55,6 +53,5 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(cub.mlx, render, &cub);
 	mlx_loop(cub.mlx);
 	free_all(&cub);
-	system("leaks cub3d > file.txt && grep ROOT LEAK:");
 	return (0);
 }

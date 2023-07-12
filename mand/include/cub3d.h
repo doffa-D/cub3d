@@ -6,7 +6,7 @@
 /*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 11:56:36 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/11 16:25:38 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:36:08 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ typedef struct s_struct
 	int				*down;
 	mlx_t			*mlx;
 	mlx_image_t		*image;
-	t_player		*player;
+	t_player		player;
 	t_rays			rays[NUM_RAYS];
-	t_texture		*the_north;
-	t_texture		*the_south;
-	t_texture		*the_west;
-	t_texture		*the_east;
+	t_texture		the_north;
+	t_texture		the_south;
+	t_texture		the_west;
+	t_texture		the_east;
 	int				WINDOW_WIDTH;
 	int				WINDOW_HEIGHT;
 	char			**map;

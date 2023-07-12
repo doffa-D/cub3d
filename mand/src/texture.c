@@ -6,7 +6,7 @@
 /*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 14:14:00 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/11 19:14:10 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/07/12 17:16:50 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,20 @@ void	path_extract(t_struct *cub, char **path)
 	char	**str;
 
 	i = -1;
-	str = ft_calloc(sizeof(char *) , 3);
-	cub->up = ft_calloc(sizeof(int) , 2);
-	cub->down = ft_calloc(sizeof(int) , 2);
+	str = ft_calloc(sizeof(char *) , 5);
+	cub->up = ft_calloc(sizeof(int) , 4);
+	cub->down = ft_calloc(sizeof(int) , 4);
 	background_buffer(path, cub, str,-1);
 	while (cub->texters[++i])
 		free(cub->texters[i]);
 	free(cub->texters);
-	cub->texters = ft_calloc(sizeof(char *) , 3);
+	cub->texters = ft_calloc(sizeof(char *) , 5);
 	i = 0;
 	while (i < 4)
 	{
 		cub->texters[i] = ft_strdup(str[i]);
 		free(str[i++]);
 	}
-	cub->texters[i] = NULL;
 	free(str);
 }
 
@@ -72,14 +71,14 @@ void	texter_check(t_struct *cub)
 
 	h = 800;
 	w = 586;
-	if (cub->the_north->wall->height != 586
-		|| cub->the_north->wall->width != 800
-		|| cub->the_south->wall->height != 586
-		|| cub->the_south->wall->width != 800
-		|| cub->the_west->wall->height != 586
-		|| cub->the_west->wall->width != 800
-		|| cub->the_east->wall->height != 586
-		|| cub->the_east->wall->width != 800)
+	if (cub->the_north.wall->height != 586
+		|| cub->the_north.wall->width != 800
+		|| cub->the_south.wall->height != 586
+		|| cub->the_south.wall->width != 800
+		|| cub->the_west.wall->height != 586
+		|| cub->the_west.wall->width != 800
+		|| cub->the_east.wall->height != 586
+		|| cub->the_east.wall->width != 800)
 	{
 		printf("fix texters size\n");
 		free_all_texters(cub);
@@ -89,25 +88,21 @@ void	texter_check(t_struct *cub)
 
 void	texturee(t_struct *cub)
 {
-	cub->the_north = ft_calloc(sizeof(t_texture),1);
-	cub->the_south = ft_calloc(sizeof(t_texture),1);
-	cub->the_west = ft_calloc(sizeof(t_texture),1);
-	cub->the_east = ft_calloc(sizeof(t_texture),1);
 	path_extract(cub, cub->texters);
-	cub->the_north->wall = mlx_load_png(cub->texters[0]);
-	cub->the_south->wall = mlx_load_png(cub->texters[1]);
-	cub->the_west->wall = mlx_load_png(cub->texters[2]);
-	cub->the_east->wall = mlx_load_png(cub->texters[3]);
-	if (!cub->the_north->wall || !cub->the_south->wall || !cub->the_west->wall
-		|| !cub->the_east->wall)
+	cub->the_north.wall = mlx_load_png(cub->texters[0]);
+	cub->the_south.wall = mlx_load_png(cub->texters[1]);
+	cub->the_west.wall = mlx_load_png(cub->texters[2]);
+	cub->the_east.wall = mlx_load_png(cub->texters[3]);
+	if (!cub->the_north.wall || !cub->the_south.wall || !cub->the_west.wall
+		|| !cub->the_east.wall)
 	{
 		printf("%s\n", mlx_strerror(mlx_errno));
 		free_all_texters(cub);
 		exit(1);
 	}
 	texter_check(cub);
-	store_pixels(&cub->the_north->color_buffer, cub->the_north->wall);
-	store_pixels(&cub->the_south->color_buffer, cub->the_south->wall);
-	store_pixels(&cub->the_west->color_buffer, cub->the_west->wall);
-	store_pixels(&cub->the_east->color_buffer, cub->the_east->wall);
+	store_pixels(&cub->the_north.color_buffer, cub->the_north.wall);
+	store_pixels(&cub->the_south.color_buffer, cub->the_south.wall);
+	store_pixels(&cub->the_west.color_buffer, cub->the_west.wall);
+	store_pixels(&cub->the_east.color_buffer, cub->the_east.wall);
 }

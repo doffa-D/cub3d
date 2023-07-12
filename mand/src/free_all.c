@@ -6,7 +6,7 @@
 /*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 15:58:00 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/11 19:17:00 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/07/12 17:15:39 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ void	free_all_texters(t_struct *cub)
 	while(i < 4)
 		free(cub->texters[i++]);
 	free(cub->texters);
-	free_color(cub->the_north);
-	free_color(cub->the_south);
-	free_color(cub->the_west);
-	free_color(cub->the_east);
+	// free_color(cub->the_north);
+	// free_color(cub->the_south);
+	// free_color(cub->the_west);
+	// free_color(cub->the_east);
 }
 
 void	free_all(t_struct *cub)
