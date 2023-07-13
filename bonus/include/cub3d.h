@@ -6,7 +6,7 @@
 /*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 11:56:36 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/12 19:02:48 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:50:22 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ typedef struct s_texture
 typedef struct s_struct
 {
 	int 			**dors;
-	int				close_dor;
+	unsigned				close_dor;
 	int				*up;
 	int				*down;
 	double			old_x;
@@ -103,7 +103,7 @@ void				setup(t_struct *cub, char *PATH);
 void					initializewindow(t_struct *cub, char *PATH);
 void				init_position(t_struct *cub);
 int					key_press(mlx_key_data_t keydata, void *param);
-float				distancePoints(float x1, float y1, float x2, float y2);
+float				distancePoints(float x, float y);
 float				normalizeAngle(float angle);
 void				castRay(t_struct *cub, float rayAngle, int stripId);
 void				castAllRays(t_struct *cub);

@@ -6,210 +6,12 @@
 /*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 11:41:19 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/12 16:28:03 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:06:24 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../include/cub3d.h"
-
-// float				distancePoints(float x1, float y1, float x2, float y2)
-// {
-//     return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
-// }
-
-// float				normalizeAngle(float angle)
-// {
-// 	angle = remainder(angle, 2*M_PI);
-// 	if (angle < 0)
-// 		angle = (2 * M_PI) + angle;
-// 	return (angle);
-// }
-
-// void				castRay(t_struct *cub,float rayAngle, int stripId)
-// { //TODO: All the crazy logic for horz, vert, ...
-// 	rayAngle = normalizeAngle(rayAngle);
-
-// 	int				isRayFacingDown	 = rayAngle > 0 && rayAngle < M_PI;
-// 	int				isRayFacingUp	 = !isRayFacingDown;
-// 	int				isRayFacingRight = rayAngle < 0.5 * M_PI || rayAngle > 1.5 * M_PI;
-// 	int				isRayFacingLeft	 = !isRayFacingRight;
-
-// 	float			xintercept, yintercept;
-// 	float			xstep, ystep;
-
-// 	///////////////////////////////////////////
-// 	///HORIZONTAL RAY_GRID INTERSECTION CODE///
-// 	///////////////////////////////////////////
-// 	int				foundHorzWallHit = false;
-// 	float			horzWallHitX	 = 0;
-// 	float			horzWallHitY	 = 0;
-// 	int				horzWallContent	 = 0;
-
-// 	// Find the y-coordinate of the closest horizontal grid intersenction
-// 	yintercept		=	floor(cub->player.y / (TILE_SIZE * MINI_MAP)) * (TILE_SIZE * MINI_MAP);
-// 	if (isRayFacingDown) 
-//         yintercept += (TILE_SIZE * MINI_MAP);
-//     else
-//         yintercept += 0;
-
-
-// 	// Find the x-coordinate of the closest horizontal grid intersection
-// 	xintercept		=	cub->player.x + (yintercept - cub->player.y) / tan(rayAngle);
-
-// 	// Calculate the increment xstep and ystep
-// 	ystep			=	(TILE_SIZE * MINI_MAP);
-//     // printf("befor ystep %f\n",ystep);
-//     if (isRayFacingUp)
-//         ystep *= -1;
-//     else
-//         ystep *= 1;
-// 	xstep			=	(TILE_SIZE * MINI_MAP) / tan(rayAngle);
-//     // printf("========\n");
-//     // printf("tan %f\n",tan(rayAngle));
-//     // printf("xstep %f\n",xstep);
-//     // printf("========\n");
-
-//     if (isRayFacingLeft && xstep > 0)
-//         xstep *= -1;
-//     else if (isRayFacingRight && xstep < 0)
-//         xstep *= -1;
-    
-
-// 	float			nextHorzTouchX = xintercept;
-// 	float			nextHorzTouchY = yintercept;
-
-// 	float		xToCheck;
-// 	float		yToCheck;
-// 	// Increment xstep and ystep until we find a wall
-// 	while (nextHorzTouchX >= 0 && nextHorzTouchX <= cub->WINDOW_WIDTH * (TILE_SIZE * MINI_MAP) &&
-// 		   nextHorzTouchY >= 0 && nextHorzTouchY <= cub->WINDOW_HEIGHT * (TILE_SIZE * MINI_MAP))
-// 	{
-// 		xToCheck = nextHorzTouchX;
-//         if (isRayFacingUp)
-//             yToCheck = nextHorzTouchY - 1;
-//         else
-//             yToCheck = nextHorzTouchY;
-
-// 		if(yToCheck > 0 && xToCheck > 0 && yToCheck <  cub->WINDOW_WIDTH * (TILE_SIZE * MINI_MAP) && xToCheck < cub->WINDOW_WIDTH  * (TILE_SIZE * MINI_MAP) && cub->map[(int)floor((yToCheck  / (TILE_SIZE * MINI_MAP)))] && cub->map[(int)floor((yToCheck  / (TILE_SIZE * MINI_MAP)))][(int)floor((xToCheck  / (TILE_SIZE * MINI_MAP)))] == '1')
-// 		{// Found a wall hit
-// 			horzWallHitX	 = nextHorzTouchX;
-// 			horzWallHitY	 = nextHorzTouchY;
-// 			horzWallContent	 = cub->map[(int)floor(yToCheck/(TILE_SIZE * MINI_MAP))][(int)floor(xToCheck/(TILE_SIZE * MINI_MAP))];
-//             foundHorzWallHit = true;
-// 			break;
-// 		}
-// 		else
-// 		{// Couldn't found a wall
-// 			nextHorzTouchX += xstep;
-// 			nextHorzTouchY += ystep;
-// 		}
-// 	}
-
-// 	///////////////////////////////////////
-// 	// /VERTICAL RAY_GRID INTERSECTION CODE///
-// 	/////////////////////////////////////////
-// 	int				foundVertWallHit = false;
-// 	float			vertWallHitX	 = 0;
-// 	float			vertWallHitY	 = 0;
-// 	int				vertWallContent	 = 0;
-
-// 	// Find the y-coordinate of the closest horizontal grid intersenction
-// 	xintercept		=	floor(cub->player.x / (TILE_SIZE * MINI_MAP)) * (TILE_SIZE * MINI_MAP);
-//     if (isRayFacingRight)
-//         xintercept += (TILE_SIZE * MINI_MAP);
-//     else
-//         xintercept += 0;
-
-
-// 	// Find the x-coordinate of the closest horizontal grid intersection
-// 	yintercept		=	cub->player.y + (xintercept - cub->player.x) * tan(rayAngle);
-
-
-// 	// Calculate the increment xstep and ystep
-// 	xstep			=	(TILE_SIZE * MINI_MAP);
-//     if (isRayFacingLeft)
-//         xstep *= -1;
-//     else 
-//         xstep *= 1;
-
-//     ystep = (TILE_SIZE * MINI_MAP) * tan(rayAngle);
-//     if (isRayFacingUp && ystep > 0)
-//         ystep *= -1;
-//     else
-//         ystep *= 1;
-    
-//     if (isRayFacingDown && ystep < 0)
-//         ystep *= -1;
-//     else
-//         ystep *= 1;
-
-// 	float			nextVertTouchX = xintercept;
-// 	float			nextVertTouchY = yintercept;
-
-// 	// Increment xstep and ystep until we find a wall
-// 	while (nextVertTouchX >= 0 && nextVertTouchX <= cub->WINDOW_WIDTH * (TILE_SIZE * MINI_MAP) &&
-// 		   nextVertTouchY >= 0 && nextVertTouchY <= cub->WINDOW_HEIGHT * (TILE_SIZE * MINI_MAP))
-// 	{
-//         if (isRayFacingLeft) 
-//             xToCheck = nextVertTouchX - 1;
-//         else 
-//             xToCheck = nextVertTouchX;
-    
-
-// 		float		yToCheck = nextVertTouchY;
-
-// 		if(yToCheck > 0 && xToCheck > 0 && yToCheck <  cub->WINDOW_WIDTH * (TILE_SIZE * MINI_MAP) && xToCheck < cub->WINDOW_WIDTH  * (TILE_SIZE * MINI_MAP) && cub->map[(int)floor((yToCheck  / (TILE_SIZE * MINI_MAP)))] && cub->map[(int)floor((yToCheck  / (TILE_SIZE * MINI_MAP)))][(int)floor((xToCheck  / (TILE_SIZE * MINI_MAP)))] == '1')
-// 		{// Found a wall hit
-// 			vertWallHitX	 = nextVertTouchX;
-// 			vertWallHitY	 = nextVertTouchY;
-// 			vertWallContent	 = cub->map[(int)floor(yToCheck/(TILE_SIZE * MINI_MAP))][(int)floor(xToCheck/(TILE_SIZE * MINI_MAP))];
-// 			foundVertWallHit = true;
-// 			break;
-// 		}
-// 		else
-// 		{// Couldn't found a wall
-// 			nextVertTouchX += xstep;
-// 			nextVertTouchY += ystep;
-// 		}
-// 	}
-
-// 	// Calculate both horizontal and vertical hit distances and choose the smallest one
-//     float horzHitDistance;
-//     if (foundHorzWallHit)
-//         horzHitDistance = distancePoints(cub->player.x, cub->player.y, horzWallHitX, horzWallHitY);
-//     else
-//         horzHitDistance = INT_MAX;
-    
-
-//     float vertHitDistance;
-//     if (foundVertWallHit)
-//         vertHitDistance = distancePoints(cub->player.x, cub->player.y, vertWallHitX, vertWallHitY);
-//     else
-//         vertHitDistance = INT_MAX;
-
-
-// 	if (vertHitDistance < horzHitDistance)
-// 	{
-// 		cub->rays[stripId].distance		 = vertHitDistance;
-// 		cub->rays[stripId].wallHitX		 = vertWallHitX;
-// 		cub->rays[stripId].wallHitY		 = vertWallHitY;
-// 		cub->rays[stripId].wasHitVertical = true;
-// 		cub->rays[stripId].wallHitContent = vertWallContent;}
-// 	else
-// 	{
-// 		cub->rays[stripId].distance		 = horzHitDistance;
-// 		cub->rays[stripId].wallHitX		 = horzWallHitX;
-// 		cub->rays[stripId].wallHitY		 = horzWallHitY;
-// 		cub->rays[stripId].wasHitVertical = false;
-// 		cub->rays[stripId].wallHitContent = horzWallContent;
-// 	}
-//     cub->rays[stripId].rayAngle			 = rayAngle;
-//     cub->rays[stripId].isRayFacingDown	 = isRayFacingDown;
-//     cub->rays[stripId].isRayFacingUp		 = isRayFacingUp;
-//     cub->rays[stripId].isRayFacingRight	 = isRayFacingRight;
-//     cub->rays[stripId].isRayFacingLeft	 = isRayFacingLeft;
-// }
 
 float				distancePoints(float x, float y)
 {
@@ -234,16 +36,9 @@ void				castRay(t_struct *cub,float rayAngle, int stripId)
 
 
 
-
-
-
-
 	float x_next_point_position;
 	float y_next_point_position;
 
-
-
-	
 	float horzWallContent = 0;
 	float foundHorzWallHit = 0;
 	float check_is_wall = 0;
@@ -288,13 +83,6 @@ void				castRay(t_struct *cub,float rayAngle, int stripId)
 		x_next_point_position+=step_x;
 		y_next_point_position+=step_y;
 	}
-
-
-
-
-
-
-
 
 
 
@@ -378,9 +166,6 @@ void				castRay(t_struct *cub,float rayAngle, int stripId)
     cub->rays[stripId].facing_right	= face_right;
     cub->rays[stripId].facing_left	= face_left;
 }
-
-
-
 
 
 
