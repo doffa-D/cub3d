@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+         #
+#    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/15 12:19:16 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/07/12 19:39:40 by nouakhro         ###   ########.fr        #
+#    Updated: 2023/07/13 10:23:33 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=address -g
 mlx_lib = MLX42/libmlx42.a
 DEPENDENCIES = $(mlx_lib) -framework Cocoa -framework OpenGL -framework IOKit
 INCLUDES = include/cub3d.h

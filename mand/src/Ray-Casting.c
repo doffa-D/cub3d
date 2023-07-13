@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ray-Casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 11:41:19 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/12 19:06:24 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/07/13 10:22:26 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,10 @@ void				castRay(t_struct *cub,float rayAngle, int stripId)
 			check_is_wall = y_next_point_position - 1;
 		else
 			check_is_wall = y_next_point_position;
-		if(check_is_wall < cub->WINDOW_HEIGHT * (TILE_SIZE * MINI_MAP) 
-		&& x_next_point_position < cub->WINDOW_WIDTH * (TILE_SIZE * MINI_MAP) 
-		&& check_is_wall > 0 && x_next_point_position > 0 &&
-		cub->map[(int)(check_is_wall / (TILE_SIZE * MINI_MAP))] &&
-		cub->map[(int)(check_is_wall / (TILE_SIZE * MINI_MAP))][(int)(x_next_point_position / (TILE_SIZE * MINI_MAP))] == '1')
+		if((check_is_wall < cub->WINDOW_HEIGHT * (TILE_SIZE * MINI_MAP) && x_next_point_position < cub->WINDOW_WIDTH * (TILE_SIZE * MINI_MAP) && check_is_wall > 0 && x_next_point_position > 0 
+		&& cub->map[(int)(check_is_wall / (TILE_SIZE * MINI_MAP))] \
+		&& x_next_point_position / (TILE_SIZE * MINI_MAP) < ft_strlen(cub->map[(int)floor((check_is_wall  / (TILE_SIZE * MINI_MAP)))])) 
+		&& cub->map[(int)(check_is_wall / (TILE_SIZE * MINI_MAP))][(int)(x_next_point_position / (TILE_SIZE * MINI_MAP))] == '1')
 		{
 			horz_point_x_intersection = x_next_point_position;
 			horz_point_y_intersection = y_next_point_position;
@@ -121,6 +120,7 @@ void				castRay(t_struct *cub,float rayAngle, int stripId)
 		&& check_is_wall < cub->WINDOW_WIDTH * (TILE_SIZE * MINI_MAP) \
 		&& y_next_point_position > 0 && check_is_wall > 0 \
 		&& cub->map[(int)(y_next_point_position / (TILE_SIZE * MINI_MAP))] \
+		&& check_is_wall / (TILE_SIZE * MINI_MAP) < ft_strlen(cub->map[(int)floor((y_next_point_position  / (TILE_SIZE * MINI_MAP)))])
 		&& cub->map[(int)(y_next_point_position / (TILE_SIZE * MINI_MAP))][(int)(check_is_wall / (TILE_SIZE * MINI_MAP))] == '1')
 		{
 			vertpoint_x_intersection = x_next_point_position;
