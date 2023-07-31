@@ -6,7 +6,7 @@
 /*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 14:28:54 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/20 19:20:46 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/07/31 20:09:23 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ void	check_map_error(t_struct *cub, int i, int j)
 {
 	static int	count_player;
 
-	while (cub->map[i][++j])
+	while (cub->map[i] && cub->map[i][++j])
 	{
 		if (ft_strchr("NWES0D", cub->map[i][j]))
 		{
 			if (ft_strchr("NWES", cub->map[i][j]))
 				count_player++;
-			if (i == 0 || j == 0 || i == calculat_map(cub) - 5
+			if (i == 0 || j == 0 || i == calculat_map(cub) - 1
 				|| count_player > 1 || (size_t)j >= ft_strlen(cub->map[i - 1]) \
 				- 1 || (size_t)j >= ft_strlen(cub->map[i + 1]) - 1)
 				print_error();

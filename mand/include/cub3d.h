@@ -6,7 +6,7 @@
 /*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 11:56:36 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/20 19:24:20 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/07/31 20:26:19 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ typedef struct s_struct
 	t_texture		the_east;
 	int				window_width;
 	int				window_height;
+	int				map_separeate;
 	char			**map;
 	char			**texters;
 
@@ -150,7 +151,12 @@ int					calculat_linght(char *map_path);
 void				check_map_error(t_struct *cub, int i, int j);
 void				check_error_texters(char **split_texters, int j, int i);
 void				print_error(void);
+void				set_up_order_utils3(t_struct *cub, \
+					int i, char *str, int number);
+void				set_up_order_utils2(t_struct *cub, int *i);
 void				check_color(char **split_texters, int j);
+void				set_up_order(t_struct *cub);
+void				set_up_order_utils1(t_struct *cub, int *i);
 void				check_texters(t_struct *cub);
 int					calculat_map(t_struct *cub);
 void				instialation_varables(t_struct *cub, t_wall_3d *var_3d_wall,

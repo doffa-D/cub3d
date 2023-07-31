@@ -6,7 +6,7 @@
 /*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 11:56:36 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/20 20:00:35 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/07/31 20:27:52 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ typedef struct s_struct
 	int				window_width;
 	int				window_height;
 	int				hide_map;
+	int				map_separeate;
 	char			**map;
 	char			**texters;
 
@@ -160,7 +161,12 @@ void				free_all_texters(t_struct *cub);
 void				key_hendler(t_struct *cub);
 void				free_all(t_struct *cub, int x);
 void				free_back(char **back);
+void				set_up_order_utils3(t_struct *cub, \
+					int i, char *str, int number);
+void				set_up_order_utils2(t_struct *cub, int *i);
 void				calculate_with_height(t_struct *cub);
+void				set_up_order(t_struct *cub);
+void				set_up_order_utils1(t_struct *cub, int *i);
 void				full_path(t_struct *cub, char *map_path);
 int					calculat_linght(char *map_path);
 void				clacul_steps(t_struct *cub, int strip_id, t_steps *step,
