@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 11:36:00 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/28 12:51:18 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/01 10:34:33 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	directions(t_struct *cub)
 		cub->player.rotation_angle = M_PI;
 	else
 	{
-		printf("Error\n");
+		printf("Error\nPlayer\n");
 		free_all(cub, 0);
 		exit(1);
 	}
@@ -53,13 +53,13 @@ void	arg_check(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		printf("Error\n");
+		printf("Error\narg\n");
 		exit(1);
 	}
 	else if (ft_strrchr(argv[1], '.')
 		&& ft_strncmp(ft_strrchr(argv[1], '.'), ".cub", 5))
 	{
-		printf("Error\n");
+		printf("Error\narg\n");
 		exit(1);
 	}
 }
@@ -69,18 +69,18 @@ void	initializewindow(t_struct *cub, char *path)
 	cub->mlx = mlx_init(WIDTH, HEIGHT, "cub3D", true);
 	if (!cub->mlx)
 	{
-		printf("Error\n");
+		printf("Error\nmlx_init\n");
 		exit(1);
 	}
 	cub->image = mlx_new_image(cub->mlx, WIDTH, HEIGHT);
 	if (!cub->image)
 	{
-		printf("Error\n");
+		printf("Error\nmlx_new_image\n");
 		exit(1);
 	}
 	if (mlx_image_to_window(cub->mlx, cub->image, 0, 0) == -1)
 	{
-		printf("Error\n");
+		printf("Error\nmlx_image_to_window\n");
 		exit(1);
 	}
 	setup(cub, path);
@@ -102,12 +102,10 @@ void	init_position(t_struct *cub)
 			{
 				cub->player.x = ((x * TILE_SIZE) + TILE_SIZE / 2) * MINI_MAP;
 				cub->player.y = ((y * TILE_SIZE) + TILE_SIZE / 2) * MINI_MAP;
-				break ;
+				return ;
 			}
 			x++;
 		}
-		if (cub->player.x || cub->player.y)
-			break ;
 		y++;
 	}
 }

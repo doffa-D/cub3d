@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+         #
+#    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/15 12:19:16 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/07/31 20:23:49 by nouakhro         ###   ########.fr        #
+#    Updated: 2023/08/01 12:05:50 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra #-fsanitize=address -g
-mlx_lib = MLX42/libmlx42.a
+mlx_lib = /Users/hdagdagu/Desktop/MLX42/libmlx42.a
 DEPENDENCIES = $(mlx_lib) -framework Cocoa -framework OpenGL -framework IOKit
 INCLUDES = include/cub3d.h
 NAME = cub3D
@@ -41,7 +41,6 @@ $(NAME): $(OBJE) $(CH)/$(INCLUDES)
 	@$(CC) $(CFLAGS) $(CH)/$(LIBFT)/libft.a -o $(NAME) $(OBJE) $(DEPENDENCIES) -lglfw -L "$(glfw)/lib"
 
 %.o: %.c
-	@printf "\033[0;33mGenerating libft objects... %-33.33s\r" $@
 	@${CC} ${CFLAGS} -c $< -o $@
 
 bonus: $(NAMEB)

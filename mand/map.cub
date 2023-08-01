@@ -1,9 +1,9 @@
-F 0,225,225
 NO ./mand/texture/the_north.png
 EA ./mand/texture/the_east.png
 SO ./mand/texture/the_south.png
 WE ./mand/texture/the_west.png
 
+F 0,225,225
 C 32,32,32
 
         1111111111111111111111111

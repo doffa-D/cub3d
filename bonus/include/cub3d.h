@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 11:56:36 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/31 20:27:52 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/08/01 12:05:37 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../../MLX42/MLX42.h"
+# include "/Users/hdagdagu/Desktop/MLX42/MLX42.h"
 # include "../libft/libft.h"
 # include <fcntl.h>
 # include <limits.h>
@@ -176,7 +176,7 @@ void				calculate_start_cordinate(t_struct *cub, int strip_id,
 						t_steps *step, int check_ver_horz);
 void				check_map_error(t_struct *cub, int i, int j);
 void				check_error_texters(char **split_texters, int j, int i);
-void				print_error(void);
+void				print_error(char *error);
 void				check_color(char **split_texters, int j);
 int					open_close_horz_dor(t_struct *cub, int strip_id,
 						t_steps *vars);

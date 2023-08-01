@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 14:22:45 by nouakhro          #+#    #+#             */
-/*   Updated: 2023/07/31 20:07:20 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/08/01 10:34:33 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	directions(t_struct *cub)
 	x = (int)floor(cub->player.x / (TILE_SIZE * MINI_MAP));
 	y = (int)floor(cub->player.y / (TILE_SIZE * MINI_MAP));
 	if (cub->map[y] && cub->map[y][x] == 'N')
-		cub->player.rotation_angle = (3 * M_PI / 2);
+		cub->player.rotation_angle = (3 * M_PI) / 2;
 	else if (cub->map[y] && cub->map[y][x] == 'S')
 		cub->player.rotation_angle = (M_PI / 2);
 	else if (cub->map[y] && cub->map[y][x] == 'E')
@@ -29,7 +29,7 @@ void	directions(t_struct *cub)
 		cub->player.rotation_angle = M_PI;
 	else
 	{
-		printf("Error\n");
+		printf("Error\nPlayer\n");
 		free_all(cub, 0);
 		exit(1);
 	}
@@ -50,13 +50,13 @@ void	arg_check(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		printf("Error\n");
+		printf("Error\narg\n");
 		exit(1);
 	}
 	else if (ft_strrchr(argv[1], '.')
 		&& ft_strncmp(ft_strrchr(argv[1], '.'), ".cub", 5))
 	{
-		printf("Error\n");
+		printf("Error\narg\n");
 		exit(1);
 	}
 }
@@ -66,18 +66,18 @@ void	initializewindow(t_struct *cub, char *path)
 	cub->mlx = mlx_init(WIDTH, HEIGHT, "cub3D", true);
 	if (!cub->mlx)
 	{
-		printf("Error\n");
+		printf("Error\nmlx_init\n");
 		exit(1);
 	}
 	cub->image = mlx_new_image(cub->mlx, WIDTH, HEIGHT);
 	if (!cub->image)
 	{
-		printf("Error\n");
+		printf("Error\nmlx_new_image\n");
 		exit(1);
 	}
 	if (mlx_image_to_window(cub->mlx, cub->image, 0, 0) == -1)
 	{
-		printf("Error\n");
+		printf("Error\nmlx_image_to_window\n");
 		exit(1);
 	}
 	setup(cub, path);

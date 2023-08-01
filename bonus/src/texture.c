@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 14:14:00 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/29 12:50:39 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/01 10:38:46 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void	texturee(t_struct *cub)
 	if (!cub->the_north.wall || !cub->the_south.wall || !cub->the_west.wall
 		|| !cub->the_east.wall || !cub->dor.wall)
 	{
-		printf("%s\n", mlx_strerror(mlx_errno));
+		printf("error\n%s\n", mlx_strerror(mlx_errno));
 		free_all(cub, 0);
 		exit(1);
 	}

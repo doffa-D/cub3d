@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parccen_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 15:50:00 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/31 20:20:52 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/08/01 10:37:50 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	check_color(char **split_texters, int j)
 		{
 			if (3 <= ft_strlen(color[index]) \
 			&& (ft_atoi(color[index]) > 255 || ft_atoi(color[index]) < 0))
-				print_error();
+				print_error("wrong color");
 			free(color[index]);
 			index++;
 		}
@@ -85,7 +85,7 @@ void	parccen_map(t_struct *cub, char *map_path)
 
 	line = calculat_linght(map_path);
 	if (line <= 5 || line * (MINI_MAP * TILE_SIZE) > HEIGHT)
-		print_error();
+		print_error("protection");
 	cub->map = ft_calloc(sizeof(char *), line - 5);
 	cub->texters = ft_calloc(sizeof(char *), 7);
 	cub->map_separeate = 0;

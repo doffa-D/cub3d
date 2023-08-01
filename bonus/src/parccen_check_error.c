@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   parccen_check_error.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 14:28:54 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/31 20:09:23 by nouakhro         ###   ########.fr       */
+/*   Updated: 2023/08/01 10:44:25 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void	print_error(void)
+void	print_error(char *error)
 {
-	printf("Error\n");
+	printf("Error\n%s\n", error);
 	exit(1);
 }
 
@@ -28,13 +28,13 @@ void	printf_error_v2(t_struct *cub)
 void	check_error_texters(char **split_texters, int j, int i)
 {
 	if (i == 0 && j == 0 && ft_strncmp(split_texters[j], "NO", 4))
-		print_error();
+		print_error("NO");
 	if (i == 1 && j == 0 && ft_strncmp(split_texters[j], "SO", 4))
-		print_error();
+		print_error("SO");
 	if (i == 2 && j == 0 && ft_strncmp(split_texters[j], "WE", 4))
-		print_error();
+		print_error("WE");
 	if (i == 3 && j == 0 && ft_strncmp(split_texters[j], "EA", 4))
-		print_error();
+		print_error("EA");
 	if (i == 4 && j == 1)
 		check_color(split_texters, j);
 	if (i == 5 && j == 1)
@@ -55,13 +55,13 @@ void	check_map_error(t_struct *cub, int i, int j)
 			if (i == 0 || j == 0 || i == calculat_map(cub) - 1
 				|| count_player > 1 || (size_t)j >= ft_strlen(cub->map[i - 1]) \
 				- 1 || (size_t)j >= ft_strlen(cub->map[i + 1]) - 1)
-				print_error();
+				print_error("in map");
 			if (cub->map[i][j + 1] == ' ' || cub->map[i][j + 1] == '\n'
 				|| cub->map[i][j + 1] == '\0' || cub->map[i][j - 1] == ' '
 				|| cub->map[i - 1][j] == ' ' || cub->map[i + 1][j] == ' ')
-				print_error();
+				print_error("in map");
 		}
 		else if (!ft_strchr("NWES0D1 \n", cub->map[i][j]))
-			print_error();
+			print_error("another character");
 	}
 }
