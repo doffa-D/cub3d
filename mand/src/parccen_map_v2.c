@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 14:27:16 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/01 10:36:59 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/01 14:46:14 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,13 @@ int	calculat_linght(char *map_path)
 
 void	fill_map_texters(t_struct *cub, char *map_tmp, int *i, int *j)
 {
+	int	x;
+
 	if (cub->map_separeate == 1)
 		print_error("map separet by newline");
 	if (*i <= 5)
 	{
-		cub->texters[*i] = ft_strdup(map_tmp);
+		cub->texters[*i] = ft_strtrim(map_tmp, " ");
 		if (ft_strncmp(cub->texters[*i], "NO ", 3) \
 		&& ft_strncmp(cub->texters[*i], "SO ", 3) \
 		&& ft_strncmp(cub->texters[*i], "WE ", 3) \
@@ -54,14 +56,14 @@ void	fill_map_texters(t_struct *cub, char *map_tmp, int *i, int *j)
 		&& ft_strncmp(cub->texters[*i], "F ", 2) \
 		&& ft_strncmp(cub->texters[*i], "C ", 2))
 		{
+			x = 0;
+			while (x <= *i)
+				free(cub->texters[x++]);
 			print_error("worng Character");
 		}
 	}
 	if ((*i) > 5)
-	{
-		cub->map[*j] = ft_strdup(map_tmp);
-		(*j)++;
-	}
+		cub->map[(*j)++] = ft_strdup(map_tmp);
 	(*i)++;
 }
 
