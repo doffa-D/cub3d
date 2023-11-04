@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 15:58:00 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/01 14:38:45 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/14 13:23:05 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	free_all_texters(t_struct *cub)
 	int	i;
 
 	i = 0;
-	while (cub->texters[i])
+	while (i < 4)
 		free(cub->texters[i++]);
 	free(cub->texters);
 	free_color(&cub->the_north);

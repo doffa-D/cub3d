@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parccen_map_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 20:20:44 by nouakhro          #+#    #+#             */
-/*   Updated: 2023/08/01 10:36:09 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/31 20:26:50 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	set_up_order_utils3(t_struct *cub, int i, char *str, int number)
 	char	*trim;
 
 	if (!ft_strncmp(cub->texters[number], str, ft_strlen(str)))
-		print_error("Duplicate Character");
+		print_error();
 	trim = cub->texters[number];
 	cub->texters[number] = cub->texters[i];
 	cub->texters[i] = trim;

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 11:56:36 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/01 12:06:15 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/31 20:26:19 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "/Users/hdagdagu/Desktop/MLX42/MLX42.h"
+# include "../../MLX42/MLX42.h"
 # include "../libft/libft.h"
 # include <fcntl.h>
 # include <limits.h>
@@ -150,7 +150,7 @@ void				full_path(t_struct *cub, char *map_path);
 int					calculat_linght(char *map_path);
 void				check_map_error(t_struct *cub, int i, int j);
 void				check_error_texters(char **split_texters, int j, int i);
-void				print_error(char *error);
+void				print_error(void);
 void				set_up_order_utils3(t_struct *cub, \
 					int i, char *str, int number);
 void				set_up_order_utils2(t_struct *cub, int *i);

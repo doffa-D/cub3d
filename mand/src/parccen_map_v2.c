@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parccen_map_v2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nouakhro <nouakhro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 14:27:16 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/01 14:46:14 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/31 20:19:42 by nouakhro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int	calculat_linght(char *map_path)
 	i = 0;
 	fd = open(map_path, O_RDONLY);
 	if (fd == -1)
-		print_error("fd");
+		print_error();
 	while (1)
 	{
 		map = get_next_line(fd);
 		if (!map && i == 0)
-			print_error("Empty");
+			print_error();
 		trim = ft_strtrim(map, " \n");
 		if (!map)
 			break ;
@@ -42,13 +42,11 @@ int	calculat_linght(char *map_path)
 
 void	fill_map_texters(t_struct *cub, char *map_tmp, int *i, int *j)
 {
-	int	x;
-
 	if (cub->map_separeate == 1)
-		print_error("map separet by newline");
+		print_error();
 	if (*i <= 5)
 	{
-		cub->texters[*i] = ft_strtrim(map_tmp, " ");
+		cub->texters[*i] = ft_strdup(map_tmp);
 		if (ft_strncmp(cub->texters[*i], "NO ", 3) \
 		&& ft_strncmp(cub->texters[*i], "SO ", 3) \
 		&& ft_strncmp(cub->texters[*i], "WE ", 3) \
@@ -56,14 +54,14 @@ void	fill_map_texters(t_struct *cub, char *map_tmp, int *i, int *j)
 		&& ft_strncmp(cub->texters[*i], "F ", 2) \
 		&& ft_strncmp(cub->texters[*i], "C ", 2))
 		{
-			x = 0;
-			while (x <= *i)
-				free(cub->texters[x++]);
-			print_error("worng Character");
+			print_error();
 		}
 	}
 	if ((*i) > 5)
-		cub->map[(*j)++] = ft_strdup(map_tmp);
+	{
+		cub->map[*j] = ft_strdup(map_tmp);
+		(*j)++;
+	}
 	(*i)++;
 }
 
@@ -79,7 +77,7 @@ void	full_path(t_struct *cub, char *map_path)
 	j = 0;
 	fd = open(map_path, O_RDONLY);
 	if (fd == -1)
-		print_error("fd");
+		print_error();
 	while (1)
 	{
 		map_tmp = get_next_line(fd);
@@ -117,6 +115,6 @@ void	calculate_with_height(t_struct *cub)
 		i = 0;
 		while (cub->texters[i])
 			free(cub->texters[i++]);
-		print_error("Size ");
+		print_error();
 	}
 }

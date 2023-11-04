@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:08:56 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/01 14:41:10 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:07:40 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int	main(int argc, char **argv)
 
 	arg_check(argc, argv);
 	initializewindow(&cub, argv[1]);
-	check_door(&cub);
 	texturee(&cub);
+	check_door(&cub);
 	mlx_key_hook(cub.mlx, (mlx_keyfunc)key_press, &cub);
 	mlx_cursor_hook(cub.mlx, (mlx_cursorfunc)mouse_handler, &cub);
 	mlx_loop_hook(cub.mlx, render, &cub);
